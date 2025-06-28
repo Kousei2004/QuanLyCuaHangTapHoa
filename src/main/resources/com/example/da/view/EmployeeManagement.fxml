@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <content>
+        <VBox spacing="20" style="-fx-padding: 25; -fx-background-color: #FAFAFA;">
+
+            <!-- Page Header -->
+            <HBox alignment="CENTER_LEFT">
+                <VBox spacing="5">
+                    <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #263238;" text="Quản lý nhân viên" />
+                    <Label style="-fx-font-size: 14px; -fx-text-fill: #607D8B;" text="Quản lý tài khoản và thông tin nhân viên" />
+                </VBox>
+                <Region HBox.hgrow="ALWAYS" />
+
+                <!-- Quick Actions -->
+                <HBox spacing="10">
+                    <Button fx:id="btnImportExcel" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-cursor: hand;">
+                        <graphic>
+                            <HBox alignment="CENTER" spacing="8">
+                                <ImageView fitHeight="16" fitWidth="16">
+                                    <image>
+                                        <Image url="@../../../../icons/import.png" />
+                                    </image>
+                                </ImageView>
+                                <Label style="-fx-text-fill: white;" text="Nhập Excel" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <Button fx:id="btnExportExcel" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-cursor: hand;">
+                        <graphic>
+                            <HBox alignment="CENTER" spacing="8">
+                                <ImageView fitHeight="16" fitWidth="16">
+                                    <image>
+                                        <Image url="@../../../../icons/export.png" />
+                                    </image>
+                                </ImageView>
+                                <Label style="-fx-text-fill: white;" text="Xuất Excel" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+                </HBox>
+            </HBox>
+
+            <!-- Statistics Cards -->
+            <HBox spacing="20">
+                <!-- Tổng nhân viên -->
+                <VBox style="-fx-background-color: linear-gradient(to bottom right, #3F51B5, #303F9F); -fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(63,81,181,0.3), 15, 0, 0, 5);" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <StackPane style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 12; -fx-padding: 15;">
+                            <ImageView fitHeight="35" fitWidth="35">
+                                <image>
+                                    <Image url="@../../../../icons/employee.png" />
+                                </image>
+                            </ImageView>
+                        </StackPane>
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 14px;" text="Tổng nhân viên" />
+                            <Label fx:id="lblTotalEmployees" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white;" text="45" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Đang làm việc -->
+                <VBox style="-fx-background-color: linear-gradient(to bottom right, #4CAF50, #388E3C); -fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(76,175,80,0.3), 15, 0, 0, 5);" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <StackPane style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 12; -fx-padding: 15;">
+                            <ImageView fitHeight="35" fitWidth="35">
+                                <image>
+                                    <Image url="@../../../../icons/check.png" />
+                                </image>
+                            </ImageView>
+                        </StackPane>
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 14px;" text="Đang làm việc" />
+                            <Label fx:id="lblActiveEmployees" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white;" text="38" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Ca hiện tại -->
+                <VBox style="-fx-background-color: linear-gradient(to bottom right, #00BCD4, #0097A7); -fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,188,212,0.3), 15, 0, 0, 5);" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <StackPane style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 12; -fx-padding: 15;">
+                            <ImageView fitHeight="35" fitWidth="35">
+                                <image>
+                                    <Image url="@../../../../icons/time.png" />
+                                </image>
+                            </ImageView>
+                        </StackPane>
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 14px;" text="Ca hiện tại" />
+                            <Label fx:id="lblCurrentShift" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white;" text="12" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Nghỉ phép -->
+                <VBox style="-fx-background-color: linear-gradient(to bottom right, #FF5722, #D84315); -fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(255,87,34,0.3), 15, 0, 0, 5);" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <StackPane style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 12; -fx-padding: 15;">
+                            <ImageView fitHeight="35" fitWidth="35">
+                                <image>
+                                    <Image url="@../../../../icons/vacation.png" />
+                                </image>
+                            </ImageView>
+                        </StackPane>
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 14px;" text="Nghỉ phép" />
+                            <Label fx:id="lblOnLeave" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white;" text="5" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- Tài khoản bị khóa -->
+                <VBox style="-fx-background-color: linear-gradient(to bottom right, #9E9E9E, #616161); -fx-padding: 25; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(158,158,158,0.3), 15, 0, 0, 5);" HBox.hgrow="ALWAYS">
+                    <HBox alignment="CENTER_LEFT" spacing="15">
+                        <StackPane style="-fx-background-color: rgba(255,255,255,0.2); -fx-background-radius: 12; -fx-padding: 15;">
+                            <ImageView fitHeight="35" fitWidth="35">
+                                <image>
+                                    <Image url="@../../../../icons/lock.png" />
+                                </image>
+                            </ImageView>
+                        </StackPane>
+                        <VBox spacing="5">
+                            <Label style="-fx-text-fill: rgba(255,255,255,0.9); -fx-font-size: 14px;" text="Tài khoản khóa" />
+                            <Label fx:id="lblLockedAccounts" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: white;" text="2" />
+                        </VBox>
+                    </HBox>
+                </VBox>
+            </HBox>
+
+            <!-- Action Bar -->
+            <VBox spacing="15" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);">
+                <!-- Action Buttons -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Button fx:id="btnAddEmployee" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 12 24; -fx-cursor: hand; -fx-font-weight: bold;">
+                        <graphic>
+                            <HBox alignment="CENTER" spacing="8">
+                                <ImageView fitHeight="18" fitWidth="18">
+                                    <image>
+                                        <Image url="@../../../../icons/plus.png" />
+                                    </image>
+                                </ImageView>
+                                <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="Thêm nhân viên" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <Button fx:id="btnAssignShift" style="-fx-background-color: #9C27B0; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 12 24; -fx-cursor: hand;">
+                        <graphic>
+                            <HBox alignment="CENTER" spacing="8">
+                                <ImageView fitHeight="18" fitWidth="18">
+                                    <image>
+                                        <Image url="@../../../../icons/calendar.png" />
+                                    </image>
+                                </ImageView>
+                                <Label style="-fx-text-fill: white;" text="Phân ca" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <Button fx:id="btnSalary" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 12 24; -fx-cursor: hand;">
+                        <graphic>
+                            <HBox alignment="CENTER" spacing="8">
+                                <ImageView fitHeight="18" fitWidth="18">
+                                    <image>
+                                        <Image url="@../../../../icons/money.png" />
+                                    </image>
+                                </ImageView>
+                                <Label style="-fx-text-fill: white;" text="Tính lương" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <Button fx:id="btnPrintCard" style="-fx-background-color: #607D8B; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 12 24; -fx-cursor: hand;">
+                        <graphic>
+                            <HBox alignment="CENTER" spacing="8">
+                                <ImageView fitHeight="18" fitWidth="18">
+                                    <image>
+                                        <Image url="@../../../../icons/print.png" />
+                                    </image>
+                                </ImageView>
+                                <Label style="-fx-text-fill: white;" text="In thẻ nhân viên" />
+                            </HBox>
+                        </graphic>
+                    </Button>
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <!-- View Toggle -->
+                    <HBox spacing="0" style="-fx-background-color: #E0E0E0; -fx-background-radius: 5;">
+                        <fx:define>
+                            <ToggleGroup fx:id="viewToggle" />
+                        </fx:define>
+                        <ToggleButton fx:id="btnCardView" selected="true" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5 0 0 5; -fx-padding: 8 15; -fx-cursor: hand;">
+                            <graphic>
+                                <ImageView fitHeight="16" fitWidth="16">
+                                    <image>
+                                        <Image url="@../../../../icons/grid.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                     <toggleGroup>
+                        <ToggleGroup fx:id="viewToggle" />
+                     </toggleGroup>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnTableView" style="-fx-background-color: transparent; -fx-background-radius: 0 5 5 0; -fx-padding: 8 15; -fx-cursor: hand;" toggleGroup="$viewToggle">
+                            <graphic>
+                                <ImageView fitHeight="16" fitWidth="16">
+                                    <image>
+                                        <Image url="@../../../../icons/list.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </ToggleButton>
+                    </HBox>
+                </HBox>
+
+                <!-- Search and Filter -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <!-- Search Field -->
+                    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8; -fx-padding: 10;" HBox.hgrow="ALWAYS">
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <image>
+                                <Image url="@../../../../icons/search.png" />
+                            </image>
+                        </ImageView>
+                        <TextField fx:id="txtSearch" promptText="Tìm kiếm theo tên, mã nhân viên, số điện thoại..." style="-fx-background-color: transparent; -fx-border-width: 0;" HBox.hgrow="ALWAYS" />
+                    </HBox>
+
+                    <!-- Filters -->
+                    <ComboBox fx:id="cbDepartment" prefWidth="180" promptText="Tất cả phòng ban" style="-fx-background-radius: 8;" />
+                    <ComboBox fx:id="cbPosition" prefWidth="150" promptText="Tất cả chức vụ" style="-fx-background-radius: 8;" />
+                    <ComboBox fx:id="cbStatus" prefWidth="150" promptText="Tất cả trạng thái" style="-fx-background-radius: 8;" />
+
+                    <Button fx:id="btnClearFilters" style="-fx-background-color: transparent; -fx-text-fill: #2196F3; -fx-cursor: hand; -fx-underline: true;" text="Xóa bộ lọc" />
+                </HBox>
+            </VBox>
+
+            <!-- Employees Grid -->
+            <VBox style="-fx-background-color: transparent;">
+                <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 0 15 0;">
+                    <CheckBox fx:id="cbSelectAll" style="-fx-font-size: 14px;" text="Chọn tất cả" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Label fx:id="lblEmployeeCount" style="-fx-text-fill: #607D8B; -fx-font-size: 14px;" text="Hiển thị 20 trong tổng số 45 nhân viên" />
+                </HBox>
+
+                <!-- Employee Cards Grid -->
+                <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                    <FlowPane fx:id="employeeGrid" hgap="20" prefWrapLength="1200" vgap="20">
+
+                        <!-- Employee Card 1 -->
+                        <VBox prefWidth="380" spacing="0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3); -fx-cursor: hand;">
+                            <!-- Header with Status -->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #2196F3, #1976D2); -fx-background-radius: 15 15 0 0; -fx-padding: 15;">
+                                <CheckBox style="-fx-text-fill: white;" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label style="-fx-background-color: rgba(255,255,255,0.3); -fx-text-fill: white; -fx-padding: 5 12; -fx-background-radius: 15; -fx-font-size: 11px; -fx-font-weight: bold;" text="Đang làm việc" />
+                            </HBox>
+
+                            <!-- Employee Info -->
+                            <VBox spacing="15" style="-fx-padding: 20;">
+                                <!-- Profile Section -->
+                                <HBox alignment="CENTER_LEFT" spacing="15">
+                                    <!-- Avatar -->
+                                    <StackPane>
+                                        <Circle fill="#E3F2FD" radius="40.0" />
+                                        <ImageView fitHeight="70.0" fitWidth="70.0" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../icons/User.png" />
+                                            </image>
+                                        </ImageView>
+                                        <!-- Online Status -->
+                                        <Circle fill="#4CAF50" radius="8" stroke="WHITE" strokeWidth="2" translateX="-5" translateY="-5" StackPane.alignment="BOTTOM_RIGHT" />
+                                    </StackPane>
+
+                                    <!-- Basic Info -->
+                                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #263238;" text="Nguyễn Văn A" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 13px;" text="NV001" />
+                                        <HBox spacing="10">
+                                            <Label style="-fx-background-color: #E3F2FD; -fx-text-fill: #2196F3; -fx-padding: 3 8; -fx-background-radius: 10; -fx-font-size: 12px;" text="Nhân viên bán hàng" />
+                                            <Label style="-fx-background-color: #F3E5F5; -fx-text-fill: #9C27B0; -fx-padding: 3 8; -fx-background-radius: 10; -fx-font-size: 12px;" text="Ca sáng" />
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+
+                                <Separator />
+
+                                <!-- Contact Info -->
+                                <VBox spacing="8">
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <ImageView fitHeight="16" fitWidth="16">
+                                            <image>
+                                                <Image url="@../../../../icons/phone.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label style="-fx-text-fill: #607D8B; -fx-font-size: 13px;" text="0987 654 321" />
+                                    </HBox>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <ImageView fitHeight="16" fitWidth="16">
+                                            <image>
+                                                <Image url="@../../../../icons/email.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label style="-fx-text-fill: #607D8B; -fx-font-size: 13px;" text="nguyenvana@gmail.com" />
+                                    </HBox>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <ImageView fitHeight="16" fitWidth="16">
+                                            <image>
+                                                <Image url="@../../../../icons/calendar.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label style="-fx-text-fill: #607D8B; -fx-font-size: 13px;" text="Ngày vào làm: 01/01/2023" />
+                                    </HBox>
+                                </VBox>
+
+                                <Separator />
+
+                                <!-- Performance Stats -->
+                                <HBox alignment="CENTER" spacing="20">
+                                    <VBox alignment="CENTER">
+                                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2196F3;" text="128" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 11px;" text="Đơn hôm nay" />
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="40" />
+                                    <VBox alignment="CENTER">
+                                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FF9800;" text="4.8" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 11px;" text="Đánh giá" />
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="40" />
+                                    <VBox alignment="CENTER">
+                                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="98%" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 11px;" text="Chuyên cần" />
+                                    </VBox>
+                                </HBox>
+
+                                <!-- Action Buttons -->
+                                <HBox alignment="CENTER" spacing="8">
+                                    <Button style="-fx-background-color: #E3F2FD; -fx-text-fill: #2196F3; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 10 20;" text="Xem chi tiết" HBox.hgrow="ALWAYS" />
+                                    <Button style="-fx-background-color: #FFF3E0; -fx-text-fill: #FF9800; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 10 20;" text="Sửa" />
+                                    <Button style="-fx-background-color: #FFEBEE; -fx-text-fill: #F44336; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 10 20;" text="Khóa" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+
+                        <!-- Employee Card 2 -->
+                        <VBox prefWidth="380" spacing="0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3); -fx-cursor: hand;">
+                            <!-- Header with Status -->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #4CAF50, #388E3C); -fx-background-radius: 15 15 0 0; -fx-padding: 15;">
+                                <CheckBox style="-fx-text-fill: white;" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label style="-fx-background-color: rgba(255,255,255,0.3); -fx-text-fill: white; -fx-padding: 5 12; -fx-background-radius: 15; -fx-font-size: 11px; -fx-font-weight: bold;" text="Đang làm việc" />
+                            </HBox>
+
+                            <!-- Employee Info -->
+                            <VBox spacing="15" style="-fx-padding: 20;">
+                                <!-- Profile Section -->
+                                <HBox alignment="CENTER_LEFT" spacing="15">
+                                    <!-- Avatar -->
+                                    <StackPane>
+                                        <Circle fill="#E8F5E9" radius="40" />
+                                        <ImageView fitHeight="70.0" fitWidth="70.0" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../icons/User.png" />
+                                            </image>
+                                        </ImageView>
+                                        <!-- Online Status -->
+                                        <Circle fill="#4CAF50" radius="8" stroke="WHITE" strokeWidth="2" translateX="-5" translateY="-5" StackPane.alignment="BOTTOM_RIGHT" />
+                                    </StackPane>
+
+                                    <!-- Basic Info -->
+                                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #263238;" text="Trần Thị B" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 13px;" text="NV002" />
+                                        <HBox spacing="10">
+                                            <Label style="-fx-background-color: #E8F5E9; -fx-text-fill: #4CAF50; -fx-padding: 3 8; -fx-background-radius: 10; -fx-font-size: 12px;" text="Thu ngân" />
+                                            <Label style="-fx-background-color: #FFF3E0; -fx-text-fill: #FF9800; -fx-padding: 3 8; -fx-background-radius: 10; -fx-font-size: 12px;" text="Ca chiều" />
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+
+                                <Separator />
+
+                                <!-- Contact Info -->
+                                <VBox spacing="8">
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <ImageView fitHeight="16" fitWidth="16">
+                                            <image>
+                                                <Image url="@../../../../icons/phone.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label style="-fx-text-fill: #607D8B; -fx-font-size: 13px;" text="0912 345 678" />
+                                    </HBox>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <ImageView fitHeight="16" fitWidth="16">
+                                            <image>
+                                                <Image url="@../../../../icons/email.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label style="-fx-text-fill: #607D8B; -fx-font-size: 13px;" text="tranthib@gmail.com" />
+                                    </HBox>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <ImageView fitHeight="16" fitWidth="16">
+                                            <image>
+                                                <Image url="@../../../../icons/calendar.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label style="-fx-text-fill: #607D8B; -fx-font-size: 13px;" text="Ngày vào làm: 15/03/2023" />
+                                    </HBox>
+                                </VBox>
+
+                                <Separator />
+
+                                <!-- Performance Stats -->
+                                <HBox alignment="CENTER" spacing="20">
+                                    <VBox alignment="CENTER">
+                                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2196F3;" text="95" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 11px;" text="Đơn hôm nay" />
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="40" />
+                                    <VBox alignment="CENTER">
+                                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FF9800;" text="4.9" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 11px;" text="Đánh giá" />
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="40" />
+                                    <VBox alignment="CENTER">
+                                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="100%" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 11px;" text="Chuyên cần" />
+                                    </VBox>
+                                </HBox>
+
+                                <!-- Action Buttons -->
+                                <HBox alignment="CENTER" spacing="8">
+                                    <Button style="-fx-background-color: #E3F2FD; -fx-text-fill: #2196F3; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 10 20;" text="Xem chi tiết" HBox.hgrow="ALWAYS" />
+                                    <Button style="-fx-background-color: #FFF3E0; -fx-text-fill: #FF9800; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 10 20;" text="Sửa" />
+                                    <Button style="-fx-background-color: #FFEBEE; -fx-text-fill: #F44336; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 10 20;" text="Khóa" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+
+                        <!-- Employee Card 3 -->
+                        <VBox prefWidth="380" spacing="0" style="-fx-background-color: white; -fx-background-radius: 15; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3); -fx-cursor: hand;">
+                            <!-- Header with Status -->
+                            <HBox alignment="CENTER_LEFT" style="-fx-background-color: linear-gradient(to right, #FF9800, #F57C00); -fx-background-radius: 15 15 0 0; -fx-padding: 15;">
+                                <CheckBox style="-fx-text-fill: white;" />
+                                <Region HBox.hgrow="ALWAYS" />
+                                <Label style="-fx-background-color: rgba(255,255,255,0.3); -fx-text-fill: white; -fx-padding: 5 12; -fx-background-radius: 15; -fx-font-size: 11px; -fx-font-weight: bold;" text="Nghỉ phép" />
+                            </HBox>
+
+                            <!-- Employee Info -->
+                            <VBox spacing="15" style="-fx-padding: 20;">
+                                <!-- Profile Section -->
+                                <HBox alignment="CENTER_LEFT" spacing="15">
+                                    <!-- Avatar -->
+                                    <StackPane>
+                                        <Circle fill="#FFF3E0" radius="40" />
+                                        <ImageView fitHeight="70" fitWidth="70" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../../icons/User.png" />
+                                            </image>
+                                        </ImageView>
+                                        <!-- Offline Status -->
+                                        <Circle fill="#9E9E9E" radius="8" stroke="WHITE" strokeWidth="2" translateX="-5" translateY="-5" StackPane.alignment="BOTTOM_RIGHT" />
+                                    </StackPane>
+
+                                    <!-- Basic Info -->
+                                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                        <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #263238;" text="Lê Văn C" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 13px;" text="NV003" />
+                                        <HBox spacing="10">
+                                            <Label style="-fx-background-color: #E1F5FE; -fx-text-fill: #0288D1; -fx-padding: 3 8; -fx-background-radius: 10; -fx-font-size: 12px;" text="Quản lý" />
+                                            <Label style="-fx-background-color: #E8EAF6; -fx-text-fill: #3F51B5; -fx-padding: 3 8; -fx-background-radius: 10; -fx-font-size: 12px;" text="Toàn thời gian" />
+                                        </HBox>
+                                    </VBox>
+                                </HBox>
+
+                                <Separator />
+
+                                <!-- Contact Info -->
+                                <VBox spacing="8">
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <ImageView fitHeight="16" fitWidth="16">
+                                            <image>
+                                                <Image url="@../../../../icons/phone.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label style="-fx-text-fill: #607D8B; -fx-font-size: 13px;" text="0923 456 789" />
+                                    </HBox>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <ImageView fitHeight="16" fitWidth="16">
+                                            <image>
+                                                <Image url="@../../../../icons/email.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label style="-fx-text-fill: #607D8B; -fx-font-size: 13px;" text="levanc@gmail.com" />
+                                    </HBox>
+
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <ImageView fitHeight="16" fitWidth="16">
+                                            <image>
+                                                <Image url="@../../../../icons/calendar.png" />
+                                            </image>
+                                        </ImageView>
+                                        <Label style="-fx-text-fill: #607D8B; -fx-font-size: 13px;" text="Ngày vào làm: 10/10/2022" />
+                                    </HBox>
+                                </VBox>
+
+                                <Separator />
+
+                                <!-- Performance Stats -->
+                                <HBox alignment="CENTER" spacing="20">
+                                    <VBox alignment="CENTER">
+                                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #9E9E9E;" text="--" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 11px;" text="Đơn hôm nay" />
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="40" />
+                                    <VBox alignment="CENTER">
+                                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #FF9800;" text="4.7" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 11px;" text="Đánh giá" />
+                                    </VBox>
+                                    <Separator orientation="VERTICAL" prefHeight="40" />
+                                    <VBox alignment="CENTER">
+                                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="95%" />
+                                        <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 11px;" text="Chuyên cần" />
+                                    </VBox>
+                                </HBox>
+
+                                <!-- Action Buttons -->
+                                <HBox alignment="CENTER" spacing="8">
+                                    <Button style="-fx-background-color: #E3F2FD; -fx-text-fill: #2196F3; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 10 20;" text="Xem chi tiết" HBox.hgrow="ALWAYS" />
+                                    <Button style="-fx-background-color: #FFF3E0; -fx-text-fill: #FF9800; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 10 20;" text="Sửa" />
+                                    <Button style="-fx-background-color: #FFEBEE; -fx-text-fill: #F44336; -fx-background-radius: 8; -fx-cursor: hand; -fx-padding: 10 20;" text="Khóa" />
+                                </HBox>
+                            </VBox>
+                        </VBox>
+
+                    </FlowPane>
+                </ScrollPane>
+
+                <!-- Pagination -->
+                <HBox alignment="CENTER" spacing="10" style="-fx-padding: 20 0;">
+                    <Button fx:id="btnFirstPage" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-cursor: hand; -fx-background-radius: 5;" text="≪" />
+                    <Button fx:id="btnPreviousPage" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-cursor: hand; -fx-background-radius: 5;" text="‹" />
+
+                    <HBox fx:id="pageButtonsContainer" alignment="CENTER" spacing="5">
+                        <Button style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 5; -fx-cursor: hand;" text="1" />
+                        <Button style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 5; -fx-cursor: hand;" text="2" />
+                        <Button style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-background-radius: 5; -fx-cursor: hand;" text="3" />
+                    </HBox>
+
+                    <Button fx:id="btnNextPage" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-cursor: hand; -fx-background-radius: 5;" text="›" />
+                    <Button fx:id="btnLastPage" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-cursor: hand; -fx-background-radius: 5;" text="≫" />
+
+                    <Separator orientation="VERTICAL" prefHeight="20" />
+
+                    <HBox alignment="CENTER" spacing="5">
+                        <Label text="Hiển thị" />
+                        <ComboBox fx:id="cbPageSize" prefWidth="70" style="-fx-background-radius: 5;" value="20">
+                            <items>
+                                <FXCollections fx:factory="observableArrayList">
+                                    <String fx:value="10" />
+                                    <String fx:value="20" />
+                                    <String fx:value="40" />
+                                    <String fx:value="60" />
+                                </FXCollections>
+                            </items>
+                        </ComboBox>
+                        <Label text="nhân viên" />
+                    </HBox>
+                </HBox>
+            </VBox>
+
+        </VBox>
+    </content>
+</ScrollPane>
