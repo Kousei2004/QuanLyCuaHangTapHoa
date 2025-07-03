@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="dialogPane" prefHeight="340.0" prefWidth="383.0" style="-fx-background-color: #ecf0f1; -fx-padding: 18;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.da.dialog.CustomerFormDialogController">
+    <content>
+        <VBox prefHeight="300.0" prefWidth="318.0" spacing="25">
+            <!-- Header -->
+            <VBox alignment="CENTER" spacing="8">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="THÔNG TIN KHÁCH HÀNG" />
+                <Separator prefWidth="300" style="-fx-background-color: #b2bec3;" />
+            </VBox>
+
+            <!-- Form Fields -->
+            <VBox spacing="15">
+                <!-- Full Name -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Họ và tên *" />
+                    <TextField fx:id="txtFullName" promptText="Nhập họ tên đầy đủ" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+
+                <!-- Phone -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Số điện thoại" />
+                    <TextField fx:id="txtPhone" promptText="Nhập số điện thoại" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+
+                <!-- Email -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Email" />
+                    <TextField fx:id="txtEmail" promptText="Nhập địa chỉ email" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+
+                <!-- Address -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Địa chỉ" />
+                    <TextField fx:id="txtAddress" promptText="Nhập địa chỉ khách hàng" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+            </VBox>
+        </VBox>
+    </content>
+
+    <buttonTypes>
+        <ButtonType fx:id="btnSave" text="Lưu" buttonData="OK_DONE" />
+        <ButtonType fx:id="btnCancel" text="Hủy" buttonData="CANCEL_CLOSE" />
+    </buttonTypes>
+</DialogPane> 

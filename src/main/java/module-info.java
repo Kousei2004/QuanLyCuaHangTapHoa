@@ -15,4 +15,5 @@ module com.example.da {
     opens com.example.da.controller to javafx.fxml;
 
     exports com.example.da;
+    opens com.example.da.dialog to javafx.fxml;
 }

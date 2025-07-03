@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
+import javafx.stage.StageStyle;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,15 +48,20 @@ public class LoginController {
                 javafx.fxml.FXMLLoader loader;
                 javafx.scene.Parent root;
                 javafx.stage.Stage stage = (javafx.stage.Stage) loginButton.getScene().getWindow();
+
+                
                 if (role == Users.Role.quanly) {
                     loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/example/da/view/Admin.fxml"));
                     root = loader.load();
-                    stage.setScene(new javafx.scene.Scene(root, 1500, 900));
+                    stage.setScene(new javafx.scene.Scene(root, 1400, 800));
+                    stage.setTitle("Hệ thống Quản lý Bán hàng - Admin");
                 } else {
                     loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/example/da/view/SalesTab.fxml"));
                     root = loader.load();
                     stage.setScene(new javafx.scene.Scene(root, 1400, 800));
+                    stage.setTitle("Hệ thống Quản lý Bán hàng - Nhân viên");
                 }
+                stage.setResizable(true);
                 stage.centerOnScreen();
             } else {
                 showAlert(Alert.AlertType.ERROR, "Sai tên đăng nhập hoặc mật khẩu, hoặc tài khoản bị khóa.");

@@ -562,6 +562,10 @@
                     </VBox>
                 </content>
             </ScrollPane>
+            <!-- Customer Management View (ẩn mặc định, show bằng code khi cần) -->
+            <fx:include fx:id="customerManagementView" source="CustomerManagement.fxml" visible="false" />
+            <!-- Supplier Management View (ẩn mặc định, show bằng code khi cần) -->
+            <fx:include fx:id="supplierManagementView" source="SupplierManagement.fxml" visible="false" />
         </StackPane>
     </center>
 
