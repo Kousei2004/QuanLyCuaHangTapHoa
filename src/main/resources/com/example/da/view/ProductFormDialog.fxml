@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="dialogPane" prefHeight="420.0" prefWidth="400.0" style="-fx-background-color: #ecf0f1; -fx-padding: 18;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.da.dialog.ProductFormDialogController">
+    <content>
+        <VBox prefHeight="400.0" prefWidth="350.0" spacing="25">
+            <!-- Header -->
+            <VBox alignment="CENTER" spacing="8">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="THÔNG TIN SẢN PHẨM" />
+                <Separator prefWidth="300" style="-fx-background-color: #b2bec3;" />
+            </VBox>
+
+            <!-- Form Fields -->
+            <VBox spacing="15">
+                <!-- Product Name -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Tên sản phẩm *" />
+                    <TextField fx:id="txtProductName" promptText="Nhập tên sản phẩm" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Barcode -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Mã vạch" />
+                    <TextField fx:id="txtBarcode" promptText="Nhập mã vạch" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Description -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Mô tả" />
+                    <TextArea fx:id="txtDescription" promptText="Nhập mô tả sản phẩm" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-background-color: #f8f9fa;" prefRowCount="2" />
+                </VBox>
+                <!-- Price -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Giá *" />
+                    <TextField fx:id="txtPrice" promptText="Nhập giá sản phẩm" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Quantity in Stock -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Số lượng tồn *" />
+                    <TextField fx:id="txtQuantityInStock" promptText="Nhập số lượng tồn" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Status -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Trạng thái" />
+                    <ComboBox fx:id="cbStatus" promptText="Chọn trạng thái" style="-fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Category -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Danh mục" />
+                    <ComboBox fx:id="cbCategory" promptText="Chọn danh mục" style="-fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-background-color: #f8f9fa;" />
+                </VBox>
+            </VBox>
+        </VBox>
+    </content>
+
+    <buttonTypes>
+        <ButtonType fx:id="btnSave" text="Lưu" buttonData="OK_DONE" />
+        <ButtonType fx:id="btnCancel" text="Hủy" buttonData="CANCEL_CLOSE" />
+    </buttonTypes>
+</DialogPane> 

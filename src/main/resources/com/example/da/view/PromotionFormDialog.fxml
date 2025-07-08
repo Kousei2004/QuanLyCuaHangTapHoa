@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="dialogPane" prefHeight="420.0" prefWidth="400.0" style="-fx-background-color: #ecf0f1; -fx-padding: 18;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.da.dialog.PromotionFormDialogController">
+    <content>
+        <VBox prefHeight="380.0" prefWidth="350.0" spacing="20">
+            <!-- Header -->
+            <VBox alignment="CENTER" spacing="8">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="THÔNG TIN KHUYẾN MÃI" />
+                <Separator prefWidth="300" style="-fx-background-color: #b2bec3;" />
+            </VBox>
+
+            <!-- Form Fields -->
+            <VBox spacing="15">
+                <!-- Code -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Mã khuyến mãi *" />
+                    <TextField fx:id="txtCode" promptText="Nhập mã khuyến mãi" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Description -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Mô tả" />
+                    <TextField fx:id="txtDescription" promptText="Nhập mô tả" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Discount Percent -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Phần trăm giảm (%) *" />
+                    <TextField fx:id="txtDiscountPercent" promptText="Nhập phần trăm giảm" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Start Date -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Ngày bắt đầu *" />
+                    <DatePicker fx:id="dpStartDate" promptText="Chọn ngày bắt đầu" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- End Date -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Ngày kết thúc *" />
+                    <DatePicker fx:id="dpEndDate" promptText="Chọn ngày kết thúc" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Status -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Trạng thái" />
+                    <ComboBox fx:id="cmbStatus" promptText="Chọn trạng thái" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+            </VBox>
+        </VBox>
+    </content>
+
+    <buttonTypes>
+        <ButtonType fx:id="btnSave" text="Lưu" buttonData="OK_DONE" />
+        <ButtonType fx:id="btnCancel" text="Hủy" buttonData="CANCEL_CLOSE" />
+    </buttonTypes>
+</DialogPane> 
