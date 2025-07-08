@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="900.0" prefWidth="1200.0" style="-fx-background-color: #f5f7fa;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.da.controller.PromotionController">
+<BorderPane prefHeight="900.0" prefWidth="1200.0" style="-fx-background-color: #f5f7fa;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.da.controller.PromotionController">
 
     <!-- Header -->
     <top>
@@ -62,16 +51,16 @@
                                     <graphic>
                                         <ImageView fitHeight="16" fitWidth="16">
                                             <image>
-                                                <Image url="@../../../../icons/export.png" />
+                                                <Image url="@../../../../icons/Export.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="btnAddPromotion" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 10 20; -fx-cursor: hand; -fx-font-weight: bold;" text="+ Thêm khuyến mãi">
+                                <Button fx:id="btnAddPromotion" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 10 20; -fx-cursor: hand; -fx-font-weight: bold;" text="Thêm khuyến mãi">
                                     <graphic>
                                         <ImageView fitHeight="16" fitWidth="16">
                                             <image>
-                                                <Image url="@../../../../icons/add.png" />
+                                                <Image url="@../../../../icons/Plus.png" />
                                             </image>
                                         </ImageView>
                                     </graphic>
@@ -86,7 +75,7 @@
 
     <!-- Main Content -->
     <center>
-        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+        <ScrollPane fitToWidth="true" prefWidth="1200.0" style="-fx-background-color: transparent;">
             <padding>
                 <Insets bottom="20" left="20" right="20" top="20" />
             </padding>
@@ -226,12 +215,12 @@
                         </VBox>
 
                         <!-- Promotions List -->
-                        <VBox prefHeight="497.0" prefWidth="1146.0" spacing="15">
+                        <VBox prefHeight="480.0" prefWidth="1039.0" spacing="15">
                             <children>
                                 <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="Danh sách khuyến mãi" />
 
                                 <!-- Promotion Cards Container -->
-                                <FlowPane fx:id="promotionsContainer" hgap="20" prefHeight="302.0" prefWidth="1146.0" prefWrapLength="1150" vgap="20">
+                                <FlowPane fx:id="promotionsContainer" hgap="20" prefHeight="332.0" prefWidth="1160.0" prefWrapLength="1150" vgap="20">
                                     <children>
 
                                         <!-- Sample Promotion Card 1 - Active -->
@@ -465,8 +454,8 @@
                                     </children>
                                 </FlowPane>
 
-                                <!-- Load More Button -->
-                                <HBox alignment="CENTER" prefHeight="18.0" prefWidth="1146.0" style="-fx-padding: 20 0 0 0;">
+                                      <!-- Load More Button -->
+                                <HBox alignment="CENTER" prefHeight="18.0" prefWidth="1146.0" style="-fx-padding: 0 0 0 0;">
                                     <children>
                                         <Button fx:id="btnLoadMore" prefHeight="31.0" prefWidth="134.0" style="-fx-background-color: transparent; -fx-text-fill: #2196F3; -fx-border-color: #2196F3; -fx-border-width: 2; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 10 30; -fx-cursor: hand; -fx-font-weight: bold;" text="Xem thêm">
                                             <graphic>
@@ -484,18 +473,5 @@
             </content>
         </ScrollPane>
     </center>
-
-    <!-- Floating Action Button -->
-    <bottom>
-        <HBox alignment="BOTTOM_RIGHT" style="-fx-padding: 20;">
-            <children>
-                <Button fx:id="btnQuickAdd" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 30; -fx-padding: 15; -fx-cursor: hand; -fx-effect: dropshadow(gaussian, rgba(33,150,243,0.4), 15, 0, 0, 5);">
-                    <graphic>
-                        <Label style="-fx-font-size: 24px; -fx-font-weight: bold;" text="+" />
-                    </graphic>
-                </Button>
-            </children>
-        </HBox>
-    </bottom>
 
 </BorderPane>

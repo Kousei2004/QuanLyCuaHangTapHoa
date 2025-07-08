@@ -7,16 +7,15 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.da.controller.ProductManagementController">
     <content>
         <VBox spacing="20" style="-fx-padding: 25; -fx-background-color: #FAFAFA;">
 
@@ -24,18 +23,6 @@
             <HBox alignment="CENTER_LEFT">
                 <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #263238;" text="Quản lý sản phẩm" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="btnExportExcel" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-cursor: hand;">
-                    <graphic>
-                        <HBox alignment="CENTER" spacing="8">
-                            <ImageView fitHeight="16" fitWidth="16">
-                                <image>
-                                    <Image url="@../../../../icons/export.png" />
-                                </image>
-                            </ImageView>
-                            <Label style="-fx-text-fill: white;" text="Xuất Excel" />
-                        </HBox>
-                    </graphic>
-                </Button>
             </HBox>
 
             <!-- Quick Stats -->
@@ -85,36 +72,10 @@
                             <HBox alignment="CENTER" spacing="8">
                                 <ImageView fitHeight="16" fitWidth="16">
                                     <image>
-                                        <Image url="@../../../../icons/plus.png" />
+                                        <Image url="@../../../../icons/Plus.png" />
                                     </image>
                                 </ImageView>
                                 <Label style="-fx-text-fill: white;" text="Thêm sản phẩm" />
-                            </HBox>
-                        </graphic>
-                    </Button>
-
-                    <Button fx:id="btnEditProduct" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-cursor: hand;">
-                        <graphic>
-                            <HBox alignment="CENTER" spacing="8">
-                                <ImageView fitHeight="16" fitWidth="16">
-                                    <image>
-                                        <Image url="@../../../../icons/Cancel.png" />
-                                    </image>
-                                </ImageView>
-                                <Label style="-fx-text-fill: white;" text="Sửa sản phẩm" />
-                            </HBox>
-                        </graphic>
-                    </Button>
-
-                    <Button fx:id="btnDeleteProduct" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-cursor: hand;">
-                        <graphic>
-                            <HBox alignment="CENTER" spacing="8">
-                                <ImageView fitHeight="16" fitWidth="16">
-                                    <image>
-                                        <Image url="@../../../../icons/Synchronize.png" />
-                                    </image>
-                                </ImageView>
-                                <Label style="-fx-text-fill: white;" text="Xóa sản phẩm" />
                             </HBox>
                         </graphic>
                     </Button>
@@ -139,13 +100,25 @@
                             <HBox alignment="CENTER" spacing="8">
                                 <ImageView fitHeight="16" fitWidth="16">
                                     <image>
-                                        <Image url="@../../../../icons/Barcode%20Scanner.png" />
+                                        <Image url="@../../../../icons/Barcode_canner.png" />
                                     </image>
                                 </ImageView>
                                 <Label style="-fx-text-fill: white;" text="In mã vạch" />
                             </HBox>
                         </graphic>
                     </Button>
+                   <Button fx:id="btnExportExcel" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-cursor: hand;">
+                       <graphic>
+                           <HBox alignment="CENTER" spacing="8">
+                               <ImageView fitHeight="16" fitWidth="16">
+                                   <image>
+                                       <Image url="@../../../../icons/Export.png" />
+                                   </image>
+                               </ImageView>
+                               <Label style="-fx-text-fill: white;" text="Xuất Excel" />
+                           </HBox>
+                       </graphic>
+                   </Button>
                 </HBox>
 
                 <!-- Search and Filter Row -->
@@ -154,7 +127,7 @@
                     <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #F5F5F5; -fx-background-radius: 5; -fx-padding: 5;" HBox.hgrow="ALWAYS">
                         <ImageView fitHeight="20" fitWidth="20">
                             <image>
-                                <Image url="@../../../../icons/search.png" />
+                                <Image url="@../../../../icons/Search.png" />
                             </image>
                         </ImageView>
                         <TextField fx:id="txtSearch" promptText="Tìm kiếm theo tên, mã sản phẩm, mã vạch..." style="-fx-background-color: transparent; -fx-border-width: 0;" HBox.hgrow="ALWAYS" />
@@ -174,44 +147,26 @@
                 </HBox>
             </VBox>
 
-            <!-- Products Table -->
-            <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);" VBox.vgrow="ALWAYS">
+            <!-- Products Grid -->
+            <VBox style="-fx-background-color: transparent;">
                 <HBox alignment="CENTER_LEFT" style="-fx-padding: 0 0 15 0;">
                     <Label style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #263238;" text="Danh sách sản phẩm" />
                     <Region HBox.hgrow="ALWAYS" />
                     <Label fx:id="lblProductCount" style="-fx-text-fill: #90A4AE;" text="Hiển thị 1-20 trong tổng số 256 sản phẩm" />
                 </HBox>
-
-                <TableView fx:id="productTable" VBox.vgrow="ALWAYS">
-                    <columns>
-                        <TableColumn fx:id="colSelect" prefWidth="50" text="STT" />
-                        <TableColumn fx:id="colProductCode" prefWidth="100" text="Mã SP" />
-                        <TableColumn fx:id="colBarcode" prefWidth="120" text="Mã vạch" />
-                        <TableColumn fx:id="colProductName" prefWidth="250" text="Tên sản phẩm" />
-                        <TableColumn fx:id="colCategory" prefWidth="150" text="Danh mục" />
-                        <TableColumn fx:id="colUnit" prefWidth="80" text="Đơn vị" />
-                        <TableColumn fx:id="colPurchasePrice" prefWidth="120" text="Giá nhập" />
-                        <TableColumn fx:id="colSellingPrice" prefWidth="120" text="Giá bán" />
-                        <TableColumn fx:id="colStock" prefWidth="100" text="Tồn kho" />
-                        <TableColumn fx:id="colStatus" prefWidth="120" text="Trạng thái" />
-                        <TableColumn fx:id="colActions" prefWidth="150" text="Thao tác" />
-                    </columns>
-                </TableView>
-
-                <!-- Pagination -->
+                <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+                    <FlowPane fx:id="productGrid" hgap="20" prefWrapLength="1200" vgap="20">
+                        <!-- Các card sản phẩm sẽ được thêm động từ controller -->
+                    </FlowPane>
+                </ScrollPane>
+                <!-- Pagination giữ nguyên -->
                 <HBox alignment="CENTER" spacing="10" style="-fx-padding: 15 0 0 0;">
                     <Button fx:id="btnFirstPage" style="-fx-background-color: #F5F5F5; -fx-cursor: hand;" text="≪" />
                     <Button fx:id="btnPreviousPage" style="-fx-background-color: #F5F5F5; -fx-cursor: hand;" text="‹" />
-
-                    <HBox fx:id="pageButtonsContainer" alignment="CENTER" spacing="5">
-                        <!-- Page number buttons will be added dynamically -->
-                    </HBox>
-
+                    <HBox fx:id="pageButtonsContainer" alignment="CENTER" spacing="5" />
                     <Button fx:id="btnNextPage" style="-fx-background-color: #F5F5F5; -fx-cursor: hand;" text="›" />
                     <Button fx:id="btnLastPage" style="-fx-background-color: #F5F5F5; -fx-cursor: hand;" text="≫" />
-
                     <Separator orientation="VERTICAL" prefHeight="20" />
-
                     <HBox alignment="CENTER" spacing="5">
                         <Label text="Hiển thị" />
                         <ComboBox fx:id="cbPageSize" prefWidth="70" value="20">

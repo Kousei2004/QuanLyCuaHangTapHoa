@@ -163,7 +163,7 @@
                         </VBox>
                   <VBox>
                      <children>
-                        <Button fx:id="btnPromotionMenu1" alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #B0BEC5; -fx-font-size: 14px; -fx-padding: 15 25; -fx-cursor: hand;">
+                        <Button fx:id="btnCategoryMenu" alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #B0BEC5; -fx-font-size: 14px; -fx-padding: 15 25; -fx-cursor: hand;">
                            <graphic>
                               <HBox alignment="CENTER_LEFT" spacing="15">
                                  <children>
