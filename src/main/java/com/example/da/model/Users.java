@@ -3,6 +3,7 @@ package com.example.da.model;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.security.MessageDigest;
 
 public class Users {
     private int user_id;
@@ -221,7 +222,8 @@ public class Users {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setString(1, employee.getUsername());
-            stmt.setString(2, employee.getPassword());
+            String password = employee.getPassword();
+            stmt.setString(2, isHashed(password) ? password : hashPassword(password));
             stmt.setString(3, employee.getFull_name());
             stmt.setString(4, employee.getEmail());
             stmt.setString(5, employee.getPhone());
@@ -240,7 +242,8 @@ public class Users {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             
             stmt.setString(1, employee.getUsername());
-            stmt.setString(2, employee.getPassword());
+            String password = employee.getPassword();
+            stmt.setString(2, isHashed(password) ? password : hashPassword(password));
             stmt.setString(3, employee.getFull_name());
             stmt.setString(4, employee.getEmail());
             stmt.setString(5, employee.getPhone());
@@ -365,4 +368,23 @@ public class Users {
         return null;
     }
 
+    public static String hashPassword(String password) {
+        try {
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            byte[] hash = md.digest(password.getBytes("UTF-8"));
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if(hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
+
+    private static boolean isHashed(String password) {
+        return password != null && password.matches("[a-fA-F0-9]{64}");
+    }
 } 

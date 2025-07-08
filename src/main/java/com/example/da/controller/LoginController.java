@@ -38,7 +38,7 @@ public class LoginController {
             String sql = "SELECT * FROM users WHERE username = ? AND password = ? AND status = 'active'";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, username);
-            stmt.setString(2, password);
+            stmt.setString(2, Users.hashPassword(password)); // So sánh mật khẩu đã băm
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
                 String roleStr = rs.getString("role");
