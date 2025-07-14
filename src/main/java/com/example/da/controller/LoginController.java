@@ -43,6 +43,13 @@ public class LoginController {
             if (rs.next()) {
                 String roleStr = rs.getString("role");
                 Users.Role role = Users.Role.valueOf(roleStr);
+                // Lưu user vào Session
+                Users user = new Users();
+                user.setUser_id(rs.getInt("user_id"));
+                user.setUsername(rs.getString("username"));
+                user.setFull_name(rs.getString("full_name"));
+                user.setRole(role);
+                com.example.da.model.Session.setCurrentUser(user);
                 showAlert(Alert.AlertType.INFORMATION, "Đăng nhập thành công!");
                 // Chuyển màn hình dựa vào role
                 javafx.fxml.FXMLLoader loader;

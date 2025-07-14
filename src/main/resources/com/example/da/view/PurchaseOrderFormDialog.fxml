@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="dialogPane" prefHeight="340.0" prefWidth="400.0" style="-fx-background-color: #ecf0f1; -fx-padding: 18;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.da.dialog.PurchaseOrderFormDialogController">
+    <content>
+        <VBox prefHeight="300.0" prefWidth="350.0" spacing="25">
+            <!-- Header -->
+            <VBox alignment="CENTER" spacing="8">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="THÔNG TIN PHIẾU NHẬP KHO" />
+                <Separator prefWidth="300" style="-fx-background-color: #b2bec3;" />
+            </VBox>
+
+            <!-- Form Fields -->
+            <VBox spacing="15">
+                <!-- Supplier -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Nhà cung cấp *" />
+                    <ComboBox fx:id="cbSupplier" promptText="Chọn nhà cung cấp" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- User -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Người nhập *" />
+                    <ComboBox fx:id="cbUser" promptText="Chọn người nhập" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Order Date -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Ngày nhập *" />
+                    <DatePicker fx:id="dpOrderDate" promptText="Chọn ngày nhập" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+                <!-- Note -->
+                <VBox spacing="5">
+                    <Label style="-fx-font-weight: bold; -fx-text-fill: #2980b9; -fx-font-size: 12px;" text="Ghi chú" />
+                    <TextField fx:id="txtNote" promptText="Nhập ghi chú" style="-fx-padding: 8; -fx-border-color: #3498db; -fx-border-radius: 10; -fx-background-radius: 10; -fx-font-size: 13px; -fx-pref-height: 32; -fx-background-color: #f8f9fa;" />
+                </VBox>
+            </VBox>
+        </VBox>
+    </content>
+
+    <buttonTypes>
+        <ButtonType fx:id="btnSave" text="Lưu" buttonData="OK_DONE" />
+        <ButtonType fx:id="btnCancel" text="Hủy" buttonData="CANCEL_CLOSE" />
+    </buttonTypes>
+</DialogPane> 

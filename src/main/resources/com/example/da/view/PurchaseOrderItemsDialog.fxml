@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<DialogPane fx:id="dialogPane" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #ecf0f1; -fx-padding: 18;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.da.dialog.PurchaseOrderItemsDialogController">
+    <content>
+        <VBox spacing="15">
+            <!-- Header -->
+            <VBox alignment="CENTER" spacing="8">
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2c3e50;" text="CHI TIẾT PHIẾU NHẬP KHO" />
+                <Separator prefWidth="500" style="-fx-background-color: #b2bec3;" />
+            </VBox>
+
+            <!-- Add Item Form -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <ComboBox fx:id="cbProduct" promptText="Chọn sản phẩm" prefWidth="200" />
+                <TextField fx:id="txtQuantity" promptText="Số lượng" prefWidth="80" />
+                <TextField fx:id="txtUnitPrice" promptText="Đơn giá" prefWidth="100" />
+                <Button fx:id="btnAddItem" text="Thêm" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-weight: bold;" />
+            </HBox>
+
+            <!-- Items Table -->
+            <TableView fx:id="itemsTable" prefHeight="300">
+                <columns>
+                    <TableColumn fx:id="colProduct" text="Sản phẩm" prefWidth="200" />
+                    <TableColumn fx:id="colQuantity" text="Số lượng" prefWidth="80" />
+                    <TableColumn fx:id="colUnitPrice" text="Đơn giá" prefWidth="100" />
+                    <TableColumn fx:id="colTotal" text="Thành tiền" prefWidth="120" />
+                    <TableColumn fx:id="colAction" text="" prefWidth="60" />
+                </columns>
+            </TableView>
+        </VBox>
+    </content>
+    <buttonTypes>
+        <ButtonType fx:id="btnSave" text="Lưu" buttonData="OK_DONE" />
+        <ButtonType fx:id="btnCancel" text="Hủy" buttonData="CANCEL_CLOSE" />
+    </buttonTypes>
+</DialogPane> 

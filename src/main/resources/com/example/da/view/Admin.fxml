@@ -251,6 +251,24 @@
                                 <Button alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #90A4AE; -fx-padding: 8 50; -fx-cursor: hand; -fx-font-size: 13px;" text="• Xuất báo cáo ca" />
                             </VBox>
                         </VBox>
+                         <Button fx:id="btnOrderMenu" alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #B0BEC5; -fx-font-size: 14px; -fx-padding: 15 25; -fx-cursor: hand;">
+                             <graphic>
+                                 <HBox alignment="CENTER_LEFT" spacing="15">
+                                     <StackPane alignment="CENTER" prefHeight="35" prefWidth="35" style="-fx-background-color: #37474F; -fx-background-radius: 10;">
+                                         <ImageView fitHeight="18" fitWidth="18">
+                                             <image>
+                                                 <Image url="@../../../../icons/Product.png" />
+                                             </image>
+                                         </ImageView>
+                                     </StackPane>
+                                     <VBox spacing="2" HBox.hgrow="ALWAYS">
+                                         <Label style="-fx-text-fill: #ECEFF1; -fx-font-size: 14px;" text="Quản lí đơn hàng" />
+                                         <Label style="-fx-text-fill: #607D8B; -fx-font-size: 11px;" text="Xem, sửa đơn hàng" />
+                                     </VBox>
+                                     <Label style="-fx-text-fill: #607D8B; -fx-font-size: 10px;" text="▼" />
+                                 </HBox>
+                             </graphic>
+                         </Button>
 
                         <!-- Báo cáo Thống kê -->
                         <VBox prefHeight="70.0" prefWidth="273.0">
@@ -355,6 +373,15 @@
                                 </graphic>
                             </Button>
                             <VBox fx:id="promotionSubmenu" managed="false" style="-fx-background-color: #0d1117; -fx-padding: 5 0 10 0;" visible="false">
+                                <Button alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #90A4AE; -fx-padding: 8 50; -fx-cursor: hand; -fx-font-size: 13px;" text="• Thêm mã khuyến mãi" />
+                                <Button alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #90A4AE; -fx-padding: 8 50; -fx-cursor: hand; -fx-font-size: 13px;" text="• Sửa mã khuyến mãi" />
+                                <Button alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #90A4AE; -fx-padding: 8 50; -fx-cursor: hand; -fx-font-size: 13px;" text="• Xóa mã khuyến mãi" />
+                            </VBox>
+                        </VBox>
+
+                        <!-- Quản lý đơn hàng -->
+                        <VBox>
+                            <VBox fx:id="orderSubmenu" managed="false" style="-fx-background-color: #0d1117; -fx-padding: 5 0 10 0;" visible="false">
                                 <Button alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #90A4AE; -fx-padding: 8 50; -fx-cursor: hand; -fx-font-size: 13px;" text="• Thêm mã khuyến mãi" />
                                 <Button alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #90A4AE; -fx-padding: 8 50; -fx-cursor: hand; -fx-font-size: 13px;" text="• Sửa mã khuyến mãi" />
                                 <Button alignment="CENTER_LEFT" prefWidth="280" style="-fx-background-color: transparent; -fx-text-fill: #90A4AE; -fx-padding: 8 50; -fx-cursor: hand; -fx-font-size: 13px;" text="• Xóa mã khuyến mãi" />
@@ -566,6 +593,8 @@
             <fx:include fx:id="customerManagementView" source="CustomerManagement.fxml" visible="false" />
             <!-- Supplier Management View (ẩn mặc định, show bằng code khi cần) -->
             <fx:include fx:id="supplierManagementView" source="SupplierManagement.fxml" visible="false" />
+            <!-- Order Management View (ẩn mặc định, show bằng code khi cần) -->
+            <fx:include fx:id="orderManagementView" source="OrderManagement.fxml" visible="false" />
         </StackPane>
     </center>
 

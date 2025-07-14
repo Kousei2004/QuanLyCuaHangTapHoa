@@ -66,10 +66,6 @@ public class EmployeeManagementController implements Initializable {
     
     @FXML private CheckBox cbSelectAll;
     
-    @FXML private ToggleButton btnCardView;
-    @FXML private ToggleButton btnTableView;
-    @FXML private ToggleGroup viewToggle;
-    
     @FXML private FlowPane employeeGrid;
     
     @FXML private Button btnFirstPage;
@@ -101,9 +97,7 @@ public class EmployeeManagementController implements Initializable {
         
         // Setup search field
         txtSearch.setPromptText("Tìm kiếm theo tên, mã nhân viên, số điện thoại...");
-        
-        // Setup view toggle
-        btnCardView.setSelected(true);
+
     }
     
     private void setupEventHandlers() {
@@ -132,16 +126,12 @@ public class EmployeeManagementController implements Initializable {
         // Action buttons
         btnAddEmployee.setOnAction(e -> showAddEmployeeDialog());
         btnClearFilters.setOnAction(e -> clearFilters());
-        btnImportExcel.setOnAction(e -> importFromExcel());
-        btnExportExcel.setOnAction(e -> exportToExcel());
+
         btnPrintCard.setOnAction(e -> printEmployeeCards());
         
         // Select all checkbox
         cbSelectAll.setOnAction(e -> selectAllEmployees());
         
-        // View toggle
-        btnCardView.setOnAction(e -> switchToCardView());
-        btnTableView.setOnAction(e -> switchToTableView());
     }
     
     private void loadEmployees() {
@@ -490,19 +480,6 @@ public class EmployeeManagementController implements Initializable {
         // Update all employee card checkboxes
     }
     
-    private void switchToCardView() {
-        // Already in card view
-        btnCardView.setSelected(true);
-        btnTableView.setSelected(false);
-    }
-    
-    private void switchToTableView() {
-        // Implementation for table view
-        btnCardView.setSelected(false);
-        btnTableView.setSelected(true);
-        // Switch to table view implementation
-    }
-    
     private void showAddEmployeeDialog() {
         try {
             javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("/com/example/da/view/EmployeeFormDialog.fxml"));
@@ -634,15 +611,7 @@ public class EmployeeManagementController implements Initializable {
             showAlert(AlertType.ERROR, "Lỗi cập nhật trạng thái: " + e.getMessage());
         }
     }
-    
-    private void importFromExcel() {
-        showAlert(AlertType.INFORMATION, "Chức năng nhập Excel sẽ được triển khai");
-    }
-    
-    private void exportToExcel() {
-        showAlert(AlertType.INFORMATION, "Chức năng xuất Excel sẽ được triển khai");
-    }
-    
+
     private void printEmployeeCards() {
         showAlert(AlertType.INFORMATION, "Chức năng in thẻ nhân viên sẽ được triển khai");
     }

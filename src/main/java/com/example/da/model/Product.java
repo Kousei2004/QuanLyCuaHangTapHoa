@@ -44,6 +44,14 @@ public class Product {
     public int getCategoryId() { return categoryId; }
     public void setCategoryId(int categoryId) { this.categoryId = categoryId; }
 
+    @Override
+    public String toString() {
+        return String.format(
+            "SP%06d - %s | Giá: %,.0f ₫ | Tồn: %d",
+            productId, name, price, quantityInStock
+        );
+    }
+
     public static List<Product> getAll() {
         List<Product> list = new ArrayList<>();
         String sql = "SELECT * FROM products ORDER BY product_id DESC";
@@ -131,5 +139,22 @@ public class Product {
             rs.getString("status"),
             rs.getInt("category_id")
         );
+    }
+
+    public static Product getById(int productId) {
+        String sql = "SELECT * FROM products WHERE product_id=?";
+        try (Connection conn = MySQLConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, productId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return fromResultSet(rs);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("[Product.getById] ERROR: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
     }
 } 

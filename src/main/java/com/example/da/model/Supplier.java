@@ -72,6 +72,11 @@ public class Supplier {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     // ================== DATABASE QUERIES ==================
     public static List<Supplier> getAllSuppliers() {
         List<Supplier> suppliers = new ArrayList<>();
@@ -137,5 +142,28 @@ public class Supplier {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static Supplier getById(Long supplierId) {
+        String sql = "SELECT * FROM suppliers WHERE supplier_id=?";
+        try (Connection conn = MySQLConnection.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            pstmt.setLong(1, supplierId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    Supplier supplier = new Supplier();
+                    supplier.setSupplierId(rs.getLong("supplier_id"));
+                    supplier.setName(rs.getString("name"));
+                    supplier.setPhone(rs.getString("phone"));
+                    supplier.setEmail(rs.getString("email"));
+                    supplier.setAddress(rs.getString("address"));
+                    supplier.setStatus(rs.getString("status"));
+                    return supplier;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 } 

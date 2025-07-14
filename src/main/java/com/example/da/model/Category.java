@@ -127,4 +127,21 @@ public class Category {
             rs.getTimestamp("updated_at")
         );
     }
+
+    public static Category getById(int categoryId) {
+        String sql = "SELECT * FROM categories WHERE category_id=?";
+        try (Connection conn = MySQLConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setInt(1, categoryId);
+            try (ResultSet rs = ps.executeQuery()) {
+                if (rs.next()) {
+                    return fromResultSet(rs);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("[Category.getById] ERROR: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return null;
+    }
 } 

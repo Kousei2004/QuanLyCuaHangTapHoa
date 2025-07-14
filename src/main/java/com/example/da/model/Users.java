@@ -102,6 +102,11 @@ public class Users {
         this.status = status;
     }
 
+    @Override
+    public String toString() {
+        return full_name;
+    }
+
     // SQL Query Methods for Employee Management
     
     // Lấy tất cả nhân viên

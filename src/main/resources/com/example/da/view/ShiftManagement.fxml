@@ -1,32 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
-<?import javafx.collections.FXCollections?>
-<?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.Tab?>
-<?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.StackPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Circle?>
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 
-<ScrollPane fitToWidth="true" prefHeight="1503.0" prefWidth="1344.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ShiftManagementController">
+<ScrollPane fitToWidth="true" prefHeight="1503.0" prefWidth="1344.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.da.controller.ShiftManagementController">
     <content>
         <VBox prefHeight="1495.0" prefWidth="1342.0" spacing="20" style="-fx-padding: 25; -fx-background-color: #FAFAFA;">
 
@@ -37,12 +19,6 @@
                     <Label style="-fx-font-size: 14px; -fx-text-fill: #607D8B;" text="Theo dõi ca làm việc, doanh thu và chấm công nhân viên" />
                 </VBox>
                 <Region HBox.hgrow="ALWAYS" />
-
-                <!-- Current Time Display -->
-                <VBox alignment="CENTER" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
-                    <Label fx:id="lblCurrentTime" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #2196F3;" text="14:30:25" />
-                    <Label fx:id="lblCurrentDate" style="-fx-text-fill: #607D8B;" text="Thứ 5, 19/06/2025" />
-                </VBox>
             </HBox>
 
             <!-- Current Shift Info -->
@@ -54,7 +30,7 @@
                             <Circle fill="rgba(255,255,255,0.2)" radius="40" />
                             <ImageView fitHeight="50" fitWidth="50">
                                 <image>
-                                    <Image url="@../../../../icons/Story%20Time.png" />
+                                    <Image url="@../../../../icons/time.png" />
                                 </image>
                             </ImageView>
                         </StackPane>
@@ -76,16 +52,10 @@
                 <!-- Thống kê ca hiện tại -->
                 <VBox spacing="15">
                     <HBox spacing="15">
-                        <!-- Nhân viên trong ca -->
-                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);" HBox.hgrow="ALWAYS">
-                            <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 13px;" text="Nhân viên trong ca" />
-                            <Label fx:id="lblEmployeesInShift" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="12/15" />
-                            <Label style="-fx-text-fill: #B0BEC5; -fx-font-size: 12px;" text="Đã check-in" />
-                        </VBox>
 
                         <!-- Doanh thu ca -->
                         <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);" HBox.hgrow="ALWAYS">
-                            <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 13px;" text="Doanh thu ca" />
+                            <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 13px;" text="Doanh Thu" />
                             <Label fx:id="lblShiftRevenue" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #FF9800;" text="15.6M" />
                             <Label style="-fx-text-fill: #B0BEC5; -fx-font-size: 12px;" text="VNĐ" />
                         </VBox>
@@ -93,138 +63,22 @@
 
                     <HBox spacing="15">
                         <!-- Đơn hàng -->
-                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);" HBox.hgrow="ALWAYS">
+                        <VBox prefHeight="118.0" prefWidth="145.0" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);" HBox.hgrow="ALWAYS">
                             <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 13px;" text="Đơn hàng" />
                             <Label fx:id="lblShiftOrders" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #9C27B0;" text="87" />
                             <Label style="-fx-text-fill: #B0BEC5; -fx-font-size: 12px;" text="Đơn" />
-                        </VBox>
-
-                        <!-- Tiền mặt trong két -->
-                        <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 3);" HBox.hgrow="ALWAYS">
-                            <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 13px;" text="Tiền trong két" />
-                            <Label fx:id="lblCashInDrawer" style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #00BCD4;" text="25.3M" />
-                            <Label style="-fx-text-fill: #B0BEC5; -fx-font-size: 12px;" text="VNĐ" />
                         </VBox>
                     </HBox>
                 </VBox>
 
                 <!-- Quick Actions -->
-                <VBox alignment="TOP_CENTER" spacing="10">
-                    <Button fx:id="btnStartShift" minWidth="200" onAction="#handleStartShift" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 10; -fx-padding: 15 30; -fx-cursor: hand; -fx-font-size: 16px; -fx-font-weight: bold;">
-                        <graphic>
-                            <HBox alignment="CENTER" spacing="10">
-                                <ImageView fitHeight="24" fitWidth="24">
-                                    <image>
-                                        <Image url="@../../../../icons/play.png" />
-                                    </image>
-                                </ImageView>
-                                <Label style="-fx-text-fill: white; -fx-font-weight: bold;" text="MỞ CA MỚI" />
-                            </HBox>
-                        </graphic>
-                    </Button>
-
-                    <Button fx:id="btnCloseShift" minWidth="200" onAction="#handleCloseShift" style="-fx-background-color: #F44336; -fx-text-fill: white; -fx-background-radius: 10; -fx-padding: 15 30; -fx-cursor: hand; -fx-font-size: 16px; -fx-font-weight: bold;">
-                        <graphic>
-                            <HBox alignment="CENTER" spacing="10">
-                                <ImageView fitHeight="24" fitWidth="24">
-                                    <image>
-                                        <Image url="@../../../../icons/stop.png" />
-                                    </image>
-                                </ImageView>
-                                <Label prefHeight="26.0" prefWidth="84.0" style="-fx-text-fill: white; -fx-font-weight: bold;" text="CHỐT CA" />
-                            </HBox>
-                        </graphic>
-                    </Button>
-
-                    <Button fx:id="btnHandover" minWidth="200" onAction="#handleHandover" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-background-radius: 10; -fx-padding: 15 30; -fx-cursor: hand;">
-                        <graphic>
-                            <HBox alignment="CENTER" spacing="10">
-                                <ImageView fitHeight="20.0" fitWidth="20.0">
-                                    <image>
-                                        <Image url="@../../../../icons/Data%20Transfer.png" />
-                                    </image>
-                                </ImageView>
-                                <Label prefHeight="18.0" prefWidth="80.0" style="-fx-text-fill: white;" text="Bàn giao ca" />
-                            </HBox>
-                        </graphic>
-                    </Button>
-                </VBox>
+                <VBox alignment="TOP_CENTER" spacing="10" />
             </HBox>
 
             <!-- Main Content TabPane -->
             <TabPane fx:id="shiftTabs" style="-fx-background-color: white; -fx-background-radius: 15;">
                 <tabs>
-                    <!-- Tab Điểm danh -->
-                    <Tab closable="false" text="Điểm danh nhân viên">
-                        <content>
-                            <VBox spacing="20" style="-fx-padding: 20;">
-                                <!-- Search and Filter -->
-                                <HBox alignment="CENTER_LEFT" spacing="15">
-                                    <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: #F5F5F5; -fx-background-radius: 8; -fx-padding: 10;" HBox.hgrow="ALWAYS">
-                                        <ImageView fitHeight="20" fitWidth="20">
-                                            <image>
-                                                <Image url="@../../../../icons/search.png" />
-                                            </image>
-                                        </ImageView>
-                                        <TextField fx:id="txtSearchEmployee" onKeyReleased="#handleSearchEmployee" promptText="Tìm kiếm nhân viên..." style="-fx-background-color: transparent; -fx-border-width: 0;" HBox.hgrow="ALWAYS" />
-                                    </HBox>
 
-                                    <ComboBox fx:id="cbDepartment" prefWidth="150" promptText="Tất cả phòng ban" />
-                                    <ComboBox fx:id="cbAttendanceStatus" prefWidth="150" promptText="Trạng thái" />
-                                </HBox>
-
-                                <!-- Employee Attendance Grid -->
-                                <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
-                                    <GridPane fx:id="attendanceGrid" hgap="15" vgap="15">
-                                        <!-- Employee Attendance Card - Sample -->
-                                        <VBox prefWidth="250" style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-radius: 10; -fx-background-radius: 10; -fx-padding: 15;" GridPane.columnIndex="0" GridPane.rowIndex="0">
-                                            <HBox alignment="CENTER_LEFT" spacing="10">
-                                                <StackPane>
-                                                    <Circle fill="#E3F2FD" radius="25" />
-                                                    <ImageView fitHeight="40" fitWidth="40">
-                                                        <image>
-                                                            <Image url="@../../../../images/default-avatar.png" />
-                                                        </image>
-                                                    </ImageView>
-                                                    <Circle fill="#4CAF50" radius="6" stroke="WHITE" strokeWidth="2" StackPane.alignment="BOTTOM_RIGHT" />
-                                                </StackPane>
-
-                                                <VBox spacing="3" HBox.hgrow="ALWAYS">
-                                                    <Label style="-fx-font-weight: bold;" text="Nguyễn Văn A" />
-                                                    <Label style="-fx-text-fill: #90A4AE; -fx-font-size: 12px;" text="NV001" />
-                                                    <Label style="-fx-font-size: 11px; -fx-text-fill: #607D8B;" text="Nhân viên bán hàng" />
-                                                </VBox>
-                                            </HBox>
-
-                                            <Separator style="-fx-margin: 10 0;" />
-
-                                            <HBox spacing="10">
-                                                <VBox HBox.hgrow="ALWAYS">
-                                                    <Label style="-fx-font-size: 11px; -fx-text-fill: #90A4AE;" text="Check-in" />
-                                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #4CAF50;" text="13:05" />
-                                                </VBox>
-                                                <VBox HBox.hgrow="ALWAYS">
-                                                    <Label style="-fx-font-size: 11px; -fx-text-fill: #90A4AE;" text="Check-out" />
-                                                    <Label style="-fx-font-weight: bold; -fx-text-fill: #9E9E9E;" text="--:--" />
-                                                </VBox>
-                                            </HBox>
-
-                                            <HBox alignment="CENTER" spacing="5" style="-fx-margin-top: 10;">
-                                                <Button disable="true" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-cursor: hand;" text="Check-in" />
-                                                <Button onAction="#handleCheckOut" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-cursor: hand;" text="Check-out" />
-                                            </HBox>
-                                        </VBox>
-                              <columnConstraints>
-                                 <ColumnConstraints />
-                              </columnConstraints>
-                              <rowConstraints>
-                                 <RowConstraints />
-                              </rowConstraints>
-                                    </GridPane>
-                                </ScrollPane>
-                            </VBox>
-                        </content>
-                    </Tab>
 
                     <!-- Tab Doanh thu ca -->
                     <Tab closable="false" text="Doanh thu ca">
@@ -519,6 +373,7 @@
                                         <TableColumn fx:id="colShiftRevenueTbl" prefWidth="150" text="Doanh thu" />
                                         <TableColumn fx:id="colOrderCount" prefWidth="100" text="Số đơn" />
                                         <TableColumn fx:id="colCashAmount" prefWidth="150" text="Tiền mặt" />
+                                        <TableColumn fx:id="colCashDifference" prefWidth="150" text="Chênh lệch" />
                                         <TableColumn fx:id="colShiftStatus" prefWidth="100" text="Trạng thái" />
                                         <TableColumn fx:id="colShiftActions" prefWidth="100" text="Thao tác" />
                                     </columns>
