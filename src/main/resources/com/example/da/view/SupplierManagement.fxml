@@ -24,18 +24,7 @@
             <HBox alignment="CENTER_LEFT">
                 <Label style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: #263238;" text="Quản lý nhà cung cấp" />
                 <Region HBox.hgrow="ALWAYS" />
-                <Button fx:id="btnExportExcel" style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-background-radius: 5; -fx-padding: 10 20; -fx-cursor: hand;">
-                    <graphic>
-                        <HBox alignment="CENTER" spacing="8">
-                            <ImageView fitHeight="16" fitWidth="16">
-                                <image>
-                                    <Image url="@../../../../icons/Export.png" />
-                                </image>
-                            </ImageView>
-                            <Label style="-fx-text-fill: white;" text="Xuất Excel" />
-                        </HBox>
-                    </graphic>
-                </Button>
+
             </HBox>
 
             <!-- Quick Stats -->

@@ -234,14 +234,15 @@ public class PromotionController {
         String keyword = txtSearch.getText().toLowerCase();
         String status = cmbStatus.getValue();
         String sort = cmbSort.getValue();
+        System.out.println("[DEBUG] Sort value: '" + sort + "'");
         promotionsContainer.getChildren().clear();
-        List<Promotion> filtered = promotionList.filtered(p ->
+        List<Promotion> filtered = new java.util.ArrayList<>(promotionList.filtered(p ->
             (keyword.isEmpty() || p.getCode().toLowerCase().contains(keyword) || (p.getDescription() != null && p.getDescription().toLowerCase().contains(keyword))) &&
-            ("Tất cả".equals(status) || p.getStatus().equals(status))
-        );
+            ("Tất cả".equalsIgnoreCase(status != null ? status.trim() : "") || p.getStatus().equalsIgnoreCase(status != null ? status.trim() : ""))
+        ));
         // Sắp xếp
-        if (sort != null && !"Mặc định".equals(sort)) {
-            switch (sort) {
+        if (sort != null && !sort.trim().equalsIgnoreCase("Mặc định")) {
+            switch (sort.trim()) {
                 case "Ngày áp dụng mới nhất":
                     filtered.sort((a, b) -> b.getStart_date().compareTo(a.getStart_date()));
                     break;
@@ -254,7 +255,13 @@ public class PromotionController {
                 case "Giá giảm thấp nhất":
                     filtered.sort((a, b) -> Double.compare(a.getDiscount_percent(), b.getDiscount_percent()));
                     break;
+                default:
+                    System.out.println("[DEBUG] Không khớp sort: '" + sort + "'");
             }
+        }
+        System.out.println("[DEBUG] Promotions after sort: ");
+        for (Promotion p : filtered) {
+            System.out.println(p.getCode() + " - " + p.getStart_date() + " - " + p.getDiscount_percent());
         }
         for (Promotion promo : filtered) {
             VBox card = createPromotionCard(promo);

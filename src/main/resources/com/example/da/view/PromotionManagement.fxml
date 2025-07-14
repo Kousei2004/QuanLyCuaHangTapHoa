@@ -47,15 +47,6 @@
                         <!-- Action Buttons -->
                         <HBox alignment="CENTER_RIGHT" spacing="10">
                             <children>
-                                <Button fx:id="btnExport" style="-fx-background-color: #e2e8f0; -fx-text-fill: #4a5568; -fx-background-radius: 8; -fx-padding: 10 20; -fx-cursor: hand;" text="Xuất báo cáo">
-                                    <graphic>
-                                        <ImageView fitHeight="16" fitWidth="16">
-                                            <image>
-                                                <Image url="@../../../../icons/Export.png" />
-                                            </image>
-                                        </ImageView>
-                                    </graphic>
-                                </Button>
                                 <Button fx:id="btnAddPromotion" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 10 20; -fx-cursor: hand; -fx-font-weight: bold;" text="Thêm khuyến mãi">
                                     <graphic>
                                         <ImageView fitHeight="16" fitWidth="16">
@@ -205,10 +196,7 @@
 
                                         <!-- Filter Dropdowns -->
                                         <ComboBox fx:id="cmbStatus" prefWidth="150" promptText="Trạng thái" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e2e8f0; -fx-border-width: 2;" />
-                                        <ComboBox fx:id="cmbType" prefWidth="150" promptText="Loại khuyến mãi" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e2e8f0; -fx-border-width: 2;" />
                                         <ComboBox fx:id="cmbSort" prefWidth="150" promptText="Sắp xếp" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #e2e8f0; -fx-border-width: 2;" />
-
-                                        <Button fx:id="btnFilter" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-background-radius: 8; -fx-padding: 10 20; -fx-cursor: hand;" text="Lọc" />
                                     </children>
                                 </HBox>
                             </children>

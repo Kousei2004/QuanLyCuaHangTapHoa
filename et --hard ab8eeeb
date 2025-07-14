@@ -1,0 +1,19 @@
+[33m4b7a435[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{0}: reset: moving to 4b7a435
+[33m4b7a435[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{1}: reset: moving to HEAD~1
+[33mab8eeeb[m HEAD@{2}: commit: Commit 14/7
+[33m4b7a435[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m HEAD@{3}: commit: commit 9/7
+[33m760e697[m HEAD@{4}: commit: Commit 8/7
+[33m2b8d825[m HEAD@{5}: reset: moving to 2b8d825
+[33m0d0ec5b[m HEAD@{6}: reset: moving to HEAD~1
+[33m2b8d825[m HEAD@{7}: reset: moving to HEAD~1
+[33m6f2ce78[m HEAD@{8}: commit: Commit 8/7
+[33m2b8d825[m HEAD@{9}: commit: Commit 8/7
+[33m0d0ec5b[m HEAD@{10}: commit: commit 7/4
+[33me7b781c[m HEAD@{11}: reset: moving to e7b781c
+[33m2847efe[m HEAD@{12}: commit (amend): Yen Commit 4/7
+[33m68bd542[m HEAD@{13}: commit (amend): Yen Commit 4/7
+[33mebc6f1d[m HEAD@{14}: checkout: moving from master to master
+[33mebc6f1d[m HEAD@{15}: rebase (abort): returning to refs/heads/master
+[33me7b781c[m HEAD@{16}: pull --rebase origin master (start): checkout e7b781c8db235abcff250b9a33b657b04a4b6868
+[33mebc6f1d[m HEAD@{17}: commit (amend): Commit 4/7
+[33me7b781c[m HEAD@{18}: commit (initial): Commit 28/6

@@ -54,11 +54,30 @@ public class CustomerManagementController {
     @FXML
     public void initialize() {
         loadCustomers();
-        // TODO: setup listeners, filters, search, etc.
+        // Thêm lắng nghe tìm kiếm
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            searchCustomers(newValue);
+        });
     }
 
     private void loadCustomers() {
         List<Customer> customers = Customer.getAllCustomers();
+        customerList.setAll(customers);
+        employeeGrid.getChildren().clear();
+        for (Customer c : customers) {
+            VBox card = createCustomerCard(c);
+            employeeGrid.getChildren().add(card);
+        }
+        lblEmployeeCount.setText("Hiển thị " + customers.size() + " khách hàng");
+    }
+
+    private void searchCustomers(String searchTerm) {
+        List<Customer> customers;
+        if (searchTerm == null || searchTerm.trim().isEmpty()) {
+            customers = Customer.getAllCustomers();
+        } else {
+            customers = Customer.searchCustomers(searchTerm.trim());
+        }
         customerList.setAll(customers);
         employeeGrid.getChildren().clear();
         for (Customer c : customers) {
